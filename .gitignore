@@ -1,0 +1,8 @@
+/vendor
+/doctrine-folders
+
+.brackets.json
+test-*
+test_*
+/forum/install
+/forum/cache
