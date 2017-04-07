@@ -84,7 +84,7 @@
 		</style>
 	</head>
 	<body>
-		<a href="deconect.php">Déconection.</a>
+		<a href="disconect.php">Déconection.</a>
 		<?php echo getHeader().''.$content ?>
 	</body>
 </html>
