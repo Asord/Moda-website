@@ -1,0 +1,266 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"nour",
+				"nouriture"
+			],
+			[
+				"nourrir",
+				"nourrirAnimal"
+			],
+			[
+				"_",
+				"_nouriture"
+			],
+			[
+				"_ty",
+				"_typeCri"
+			],
+			[
+				"_type",
+				"_typeCri"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/index.html",
+			"settings":
+			{
+				"buffer_size": 1809,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/kikip/Desktop/a.php",
+		"/C/Users/kikip/Desktop/space-science/upload/index.html",
+		"/C/Users/kikip/Desktop/space-science/upload/contact.html",
+		"/C/Users/kikip/Desktop/sourcexsrt/contact.html",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/css/bootstrap.css",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/index.html",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/css/style.css",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/css/bootstrap.css.map",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/js/bootstrap.js",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/css/style.css",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/index.html",
+		"/C/wamp64/www/BD2/doctrine/src/Users.php",
+		"/C/wamp64/www/BD2/doctrine/src/Product.php",
+		"/C/wamp64/www/BD2/doctrine/create_product.php",
+		"/C/wamp64/www/BD2/doctrine/src/Bug.php",
+		"/C/wamp64/www/BD2/doctrine/create_bug.php",
+		"/C/wamp64/www/BD2/doctrine/create_user.php",
+		"/C/wamp64/www/BD2/doctrine/bootstrap.php",
+		"/C/Users/kikip/Google Drive/save.py",
+		"/C/wamp64/www/BD2/doctrine/index.php",
+		"/C/wamp64/www/BD2/doctrine/cli-config.php",
+		"/C/Program Files (x86)/Python36-32/Lib/zipapp.py",
+		"/C/wamp64/www/BD2/doctrine/update-db.bat",
+		"/C/wamp64/www/BD2/save.py",
+		"/C/Program Files (x86)/Python36-32/Lib/zipfile.py",
+		"/C/wamp64/www/BD2/doctrine/update-db.cmd",
+		"/C/Users/kikip/Desktop/sub.bat",
+		"/C/wamp64/www/BD2/update.bat",
+		"/C/Users/kikip/Desktop/Document.txt",
+		"/C/wamp64/www/BD2/doctrine/composer.bat",
+		"/C/wamp64/www/BD2/doctrine/install_doctrine.bat",
+		"/C/wamp64/www/BD2/update.py",
+		"/C/wamp64/www/doctrine_dev/index.php",
+		"/C/wamp64/www/doctrine_dev/install_doctrine.bat",
+		"/C/wamp64/www/index.php",
+		"/C/wamp64/www/doc/composer.json",
+		"/C/Users/kikip/Desktop/install_doctrine.bat",
+		"/C/wamp64/www/doc/composer.bat",
+		"/C/wamp64/bin/php/php7.0.10/composer.json",
+		"/C/wamp64/bin/php/php7.0.10/composer.bat",
+		"/C/wamp64/bin/php/php7.0.10/composer.lock",
+		"/C/wamp64/www/index_TD3.php",
+		"/C/wamp64/www/index_tp2.php",
+		"/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/Algorithmique/Algo 1/Codes Sources VS15/TD Tableaux/TD Tableaux/Source.cpp"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/C/Users/kikip/Google Drive/Mes documents/Documents/Cours/IHM/Codes HTML/TD2/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1041,
+								1041
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/C++/C++ Single File.sublime-build",
+	"project": "php.sublime-project",
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
