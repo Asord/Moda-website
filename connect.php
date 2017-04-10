@@ -2,6 +2,35 @@
 
 require_once "utility.php";
 
+/*
+ * function connect
+ * param: $entityManager -> the entityManager to interact with sql database
+ * param: $name -> the username to find in sql database
+ * param: &password -> password to identify user in sql database (codded in sha1)
+ *
+ * return: -1 if connection fail | 0 if connection success
+ */
+function connect($entityManager, $name, $password)
+{
+	if (empty($name))
+        return -1;
+	if (empty($password))
+        return -1;
+
+	// Request
+	$list = sendRequest($entityManager, 'SELECT * FROM User u where u.user="'.$name.'"');
+
+	if(is_null($list[0]))
+        return -1;
+
+	$hashPass = $list[0]['password'];
+
+	if(sha1($password) == $hashPass)
+        return 0;
+
+	return -1;
+}
+
 #Connection check
 if(isset($_POST["user"]) && isset($_POST["password"]))
 {
@@ -16,10 +45,9 @@ if(isset($_POST["user"]) && isset($_POST["password"]))
 
 ?>
 
-
 <html>
     <?php
-    if ($_SESSION["isConnected"])
+    if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"])
     {
         echo '
             <head>
