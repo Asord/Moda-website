@@ -14,7 +14,7 @@ $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src"), $i
 
 // database configuration parameters
 $conn = array(
-    'dbname' => 'labase',
+    'dbname' => 'moda_b',
     'user' => 'root',
     'password' => '',
     'host' => 'localhost',
