@@ -1,5 +1,8 @@
 <?php
-
+/* session variables:
+ *    isConnected: bool (define if a current user is connected)
+ */
+session_start();
 
 function sendRequest($entityManager, $request)
 {
