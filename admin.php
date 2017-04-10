@@ -41,12 +41,12 @@
     {
         deletePage($entityManager, $_GET["delete"]);
         echo "page sucessfully deleted.";
-        $page = defaultPage();
+        $page = defaultPage($entityManager);
     }
     // if nothing is defined, page is a default page
     else
     {
-        $page = defaultPage();
+        $page = defaultPage($entityManager);
     }
 
 	$title = $page[0];
