@@ -1,5 +1,6 @@
 /vendor
 /doctrine-folders
+/install
 
 .brackets.json
 test-*
