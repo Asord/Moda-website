@@ -1,10 +1,5 @@
 
 <?php
-    /* session variables:
-     *    isConnected: bool (define if a current user is connected)
-     */
-	session_start();
-
 	require_once "pageManager.php";
     require_once "template.php";
 
@@ -18,6 +13,7 @@
 
         if ($result == 0)
 		  $_SESSION["isConnected"] = true;
+          $_SESSION["user"] = $_POST["user"];
 	}
 
     // If there is no connection yet
