@@ -4,6 +4,8 @@
  */
 session_start();
 
+require_once "bootstrap.php";
+
 function sendRequest($entityManager, $request)
 {
 	$emr = $entityManager->getConnection()->prepare($request);
