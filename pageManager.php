@@ -98,6 +98,18 @@ function defaultPage($entityManager)
 	$title = "<title>Liste des pages - Module d\'aide</title>";
 	$content = "<center><table>";
     
+    // If there is no page, invite admin to create some insteed.
+    if(count($list) == 0)
+    {
+        $content .= '
+            <tr>
+                <td>
+                    <p>Aucune pas n\'existe pour le moment. Créez-en une en cliquant sur "Créer une page"</p>
+                </td>
+            </tr></table></center>';
+        return [$title, $content];
+    }
+
     // For each pages
 	foreach ($list as $row)
 		{ 
