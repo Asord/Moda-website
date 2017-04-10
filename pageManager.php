@@ -85,7 +85,7 @@ function getPage($entityManager, $id)
 }
 
 /*
- * function listPages
+ * function defaultPage (liste of all pages)
  * param: $entityManager -> the entityManager to interact with sql database
  *
  * return: array page[title, content]
