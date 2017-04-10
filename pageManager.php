@@ -1,28 +1,7 @@
 <?php
 
 require_once "utility.php";
-require_once "bootstrap.php";
 
-
-/*
- * function defaultConnectionPage
- *
- * return: array page[title, content]
- */
-function defaultConnectionPage()
-{
-	$title = 
-		'<title>Connection - Module d\'aide</title>';
-	$content = 
-		'Veuillez vous connecté pour pouvoir continué.
-		<form action="" method="post">
-			Identifiant:<br><input type="text" name="user"><br>
-			Mot de passe:<br><input type="password" name="password"></input><br>
-			<input type="submit">
-		</form>';
-
-	return [$title, $content];
-}
 
 /*
  * function defaultPage
