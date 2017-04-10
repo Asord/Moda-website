@@ -7,9 +7,9 @@
  * https://docs.mybb.com/
  */
 
-$config['database']['type'] = 'mysqli';
-$config['database']['database'] = 'modabb';
-$config['database']['table_prefix'] = 'mbb_';
+$config['database']['type'] = 'mysql';
+$config['database']['database'] = 'moda';
+$config['database']['table_prefix'] = 'bb_';
 
 $config['database']['hostname'] = 'localhost';
 $config['database']['username'] = 'root';
