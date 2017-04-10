@@ -6,20 +6,11 @@
     // Page data -> 0: page title | 1: page content
 	$page = [];
 
-	// if an user and a password is defined as post var
-	if(isset($_POST["user"]) && isset($_POST["password"]))
-	{
-		$result = connect($entityManager, $_POST["user"], $_POST["password"]);
-
-        if ($result == 0)
-		  $_SESSION["isConnected"] = true;
-          $_SESSION["user"] = $_POST["user"];
-	}
-
     // If there is no connection yet
 	if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
 	{
-		$page = defaultConnectionPage();
+		header('Location:connect.php');
+        exit();
 	}
 	else
 	{
