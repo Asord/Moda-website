@@ -61,6 +61,7 @@ header{
   display: -webkit-flex;
   display: -ms-flexbox;
 }
+
 #section1{
 	color:#000000;
 	background-color:#ffffff;
@@ -117,6 +118,90 @@ header{
 
 
 
+
+ /* -------------------------------------------------------------------------------*/
+ 
+ /*Demande d'aide*/
+
+#title_row{
+	height:auto; 
+}
+
+#text_row{
+	height:auto;
+}
+
+#button_row{
+	height:auto;
+	margin-bottom:50px;
+}
+
+#left{
+	 background-color:#222c37;
+	 color:#ffffff;
+	 text-align:center;
+	 width:33.3%;
+}
+
+#center{
+	background-color:#151c23;
+	color:#ffffff;
+	height:auto;
+	 width:33.3%;
+}
+
+ #right{
+	background-color:#222c37;
+	color:#ffffff;
+	height:auto;
+	 width:33.3%;
+ }
+ 
+#left a {
+	background-color:#fef200;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-top:50px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+}
+
+#center a {
+	background-color:#33cccc;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+	margin-top:50px;
+}
+
+#right a {
+	background-color:#64d300;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+	margin-top:50px;
+}
+
+.paragraph{
+	margin-top:40px;
+} 
+
+.subject{
+	text-align:left;
+	margin-top:20px;
+	margin-left:15px;
+}
 
  /* -------------------------------------------------------------------------------*/
  
