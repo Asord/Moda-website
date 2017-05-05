@@ -38,6 +38,8 @@ if(isset($_POST["user"]) && isset($_POST["password"]))
 
     if ($result == 0)
     {
+		/* setcookie(isConnected, true, (time() + 3600) );
+		setcookie(user, $_POST["user"], (time() + 3600) ); */
         $_SESSION["isConnected"] = true;
         $_SESSION["user"] = $_POST["user"];
     }
@@ -47,6 +49,7 @@ if(isset($_POST["user"]) && isset($_POST["password"]))
 
 <html>
     <?php
+	/* if (isset(&_COOKIE["isConnected"]) && $_COOKIE["isConnected"]) */
     if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"])
     {
         echo '
