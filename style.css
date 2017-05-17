@@ -1,0 +1,288 @@
+body {
+	background-color: #ffffff;
+	font-family: 'Roboto', arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+/* Header */
+.navbar{
+	margin-bottom:0;
+	border-radius:0;
+	border:0;
+}
+.navbar {
+   background-color: #000000;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 20px 25px;
+	color:#ffffff;
+	font-size:17px;
+}
+.nav > li > a :hover{
+	color:#000000;
+}
+header{
+	background-position: relative;
+	background-image:url("../images/banderole1.jpg");
+	background-repeat:no-repeat;
+	background-position:top right;
+    color:#ffffff; /* Espace entre ligne*/
+    font-weight:400;
+	overflow:hidden; 
+	background-size: cover;
+}
+
+.h1{
+    font-weight:700;
+	padding-top:200px;
+    font-size:48px;
+    line-height:40px;
+}
+.h2{	
+    font-size:30px;
+    line-height:60px;
+	padding:0 0 120px 0;
+}
+
+/* End of header */
+
+ /*------------------------------------------------------------------------------*/
+
+/* Section1*/
+/*Index*/
+.section1_index{
+	margin-top:-50px;
+	margin-bottom:50px;
+}
+
+#block{
+	background-color:#222c37;
+	background-size:cover;
+	border-radius:5px;
+	color:#ffffff;
+	width:48%;
+	height:auto;
+}
+
+#margin_border{
+	width:10%;
+}
+
+#margin_center{
+	width:3.4%;
+}
+
+.title{
+	font-size:4vw;
+	font-weight:300;
+	margin-bottom:20px;
+	margin-top:20px;
+	text-align:center;
+}
+
+.line1{
+	background-color:#33cccc;
+	height:5px;
+	border-radius:1.5px;
+	margin-left:30%;
+	margin-right:30%;
+	margin-bottom:50px;
+}
+
+.line2{
+	background-color:#33cccc;
+	height:5px;
+	border-radius:1.5px;
+	margin-left:30%;
+	margin-right:30%;
+	margin-bottom:10px;
+}
+
+.paragraph{
+	min-height:180px;
+}
+
+.paragraph p{
+	font-size:15px;
+	font-weight:300;
+	text-align:left;
+	margin-left:5%;
+	margin-right:5%;
+}
+
+.pictures{
+	margin-bottom:40px;
+	min-height:180px;
+}
+
+.button{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.button a{
+	font-size:30px;
+	float:right;
+	background-color:#2b7c82;
+	border:none;
+	margin-right:20px;
+	margin-bottom:20px;
+}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*Galerie*/
+#section1{
+	color:#000000;
+	background-color:#ffffff;
+}
+
+.title h1{
+	padding-top: 20px;
+	font-size:60px;
+	font-weight:700;
+ }
+ 
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ #section1 #line{
+	background-color:#33cccc;
+	margin:40px 0 60px 0;
+	padding-top:5px;
+ }
+
+#categorie h1{
+	 font-size:24px;
+	 color:#000000;
+	 font-style:none;
+ }
+
+#categorie h1:hover{
+	 text-decoration:none;
+	 cursor:pointer;
+ }
+ 
+#col img{
+	 width:288px;
+	 padding-bottom:15px;
+ }
+ 
+#col img:hover{
+	 cursor:pointer;
+ }
+
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
+    float: left;
+}
+
+
+/* -------------------------------------------------------------------------------*/
+/*Demande d'aide*/
+
+#title_row{
+	height:auto; 
+}
+
+#text_row{
+	height:auto;
+}
+
+#button_row{
+	height:auto;
+	margin-bottom:50px;
+}
+
+#left{
+	 background-color:#222c37;
+	 color:#ffffff;
+	 text-align:center;
+	 width:33.3%;
+}
+
+#center{
+	background-color:#151c23;
+	color:#ffffff;
+	height:auto;
+	 width:33.3%;
+}
+
+ #right{
+	background-color:#222c37;
+	color:#ffffff;
+	height:auto;
+	 width:33.3%;
+ }
+ 
+#left a {
+	background-color:#fef200;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-top:50px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+}
+
+#center a {
+	background-color:#33cccc;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+	margin-top:50px;
+}
+
+#right a {
+	background-color:#64d300;
+	color:#000000;
+	border:none;
+	margin-bottom:30px;
+	margin-left:5%;
+	width:90%;
+	font-size:30px;
+	text-align:center;
+	margin-top:50px;
+}
+
+.paragraph{
+	margin-top:40px;
+} 
+
+.subject{
+	text-align:left;
+	margin-top:20px;
+	margin-left:15px;
+}
+
+ /* -------------------------------------------------------------------------------*/
+ 
+ 
+ /*footer*/
+ 
+  footer{
+	 background-color:#404040;
+	 height:60px;
+	 font-size:15px;
+	 padding-top:20px;
+ }
+ 
+ footer p{
+	 margin:0;
+	 text-align:center;
+	 color:#ffffff;
+ }
