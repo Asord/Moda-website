@@ -1,0 +1,1 @@
+C:\wamp64\bin\php\php5.6.25\php.exe vendor/doctrine/orm/bin/doctrine orm:schema-tool:create
