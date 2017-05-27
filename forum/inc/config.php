@@ -7,8 +7,8 @@
  * https://docs.mybb.com/
  */
 
-$config['database']['type'] = 'mysql';
-$config['database']['database'] = 'moda';
+$config['database']['type'] = 'mysqli';
+$config['database']['database'] = 'moda_bb';
 $config['database']['table_prefix'] = 'bb_';
 
 $config['database']['hostname'] = 'localhost';

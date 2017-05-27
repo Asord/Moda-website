@@ -400,6 +400,20 @@ function my_date($format, $stamp=0, $offset="", $ty=1, $adodb=false)
 	if($format == 'relative')
 	{
 		// Relative formats both date and time
+		$real_date = $real_time = '';
+		if($adodb == true)
+		{
+			$real_date = adodb_date($mybb->settings['dateformat'], $stamp + ($offset * 3600));
+			$real_time = $mybb->settings['datetimesep'];
+			$real_time .= adodb_date($mybb->settings['timeformat'], $stamp + ($offset * 3600));
+		}
+		else
+		{
+			$real_date = gmdate($mybb->settings['dateformat'], $stamp + ($offset * 3600));
+			$real_time = $mybb->settings['datetimesep'];
+			$real_time .= gmdate($mybb->settings['timeformat'], $stamp + ($offset * 3600));
+		}
+
 		if($ty != 2 && abs(TIME_NOW - $stamp) < 3600)
 		{
 			$diff = TIME_NOW - $stamp;
@@ -426,7 +440,7 @@ function my_date($format, $stamp=0, $offset="", $ty=1, $adodb=false)
 				$relative['prefix'] = $lang->rel_less_than;
 			}
 
-			$date = $lang->sprintf($lang->rel_time, $relative['prefix'], $relative['minute'], $relative['plural'], $relative['suffix']);
+			$date = $lang->sprintf($lang->rel_time, $relative['prefix'], $relative['minute'], $relative['plural'], $relative['suffix'], $real_date, $real_time);
 		}
 		elseif($ty != 2 && abs(TIME_NOW - $stamp) < 43200)
 		{
@@ -448,7 +462,7 @@ function my_date($format, $stamp=0, $offset="", $ty=1, $adodb=false)
 				$relative['plural'] = $lang->rel_hours_single;
 			}
 
-			$date = $lang->sprintf($lang->rel_time, $relative['prefix'], $relative['hour'], $relative['plural'], $relative['suffix']);
+			$date = $lang->sprintf($lang->rel_time, $relative['prefix'], $relative['hour'], $relative['plural'], $relative['suffix'], $real_date, $real_time);
 		}
 		else
 		{
@@ -456,11 +470,11 @@ function my_date($format, $stamp=0, $offset="", $ty=1, $adodb=false)
 			{
 				if($todaysdate == $date)
 				{
-					$date = $lang->today;
+					$date = $lang->sprintf($lang->today, $real_date);
 				}
 				else if($yesterdaysdate == $date)
 				{
-					$date = $lang->yesterday;
+					$date = $lang->sprintf($lang->yesterday, $real_date);
 				}
 			}
 
@@ -481,11 +495,11 @@ function my_date($format, $stamp=0, $offset="", $ty=1, $adodb=false)
 		{
 			if($todaysdate == $date)
 			{
-				$date = $lang->today;
+				$date = $lang->sprintf($lang->today, $real_date);
 			}
 			else if($yesterdaysdate == $date)
 			{
-				$date = $lang->yesterday;
+				$date = $lang->sprintf($lang->yesterday, $real_date);
 			}
 		}
 		else
@@ -966,7 +980,7 @@ function redirect($url, $message="", $title="", $force_redirect=false)
 
 		run_shutdown();
 
-		if(!my_validate_url($url, true))
+		if(!my_validate_url($url, true, true))
 		{
 			header("Location: {$mybb->settings['bburl']}/{$url}");
 		}
@@ -8580,16 +8594,25 @@ function copy_file_to_cdn($file_path = '', &$uploaded_path = null)
  *
  * @param string $url The url to validate.
  * @param bool $relative_path Whether or not the url could be a relative path.
+ * @param bool $allow_local Whether or not the url could be pointing to local networks.
  *
  * @return bool Whether this is a valid url.
  */
-function my_validate_url($url, $relative_path=false)
+function my_validate_url($url, $relative_path=false, $allow_local=false)
 {
-	if($relative_path && my_substr($url, 0, 1) == '/' || preg_match('_^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$_iuS', $url))
+	if($allow_local)
+	{
+		$regex = '_^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:localhost|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,}))\.?))(?::\d{2,5})?(?:[/?#]\S*)?$_iuS';
+	}
+	else
+	{
+		$regex = '_^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]-*)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,}))\.?)(?::\d{2,5})?(?:[/?#]\S*)?$_iuS';
+	}
+
+	if($relative_path && my_substr($url, 0, 1) == '/' || preg_match($regex, $url))
 	{
 		return true;
 	}
-
 	return false;
 }
 
@@ -8611,4 +8634,43 @@ function my_strip_tags($string, $allowable_tags = '')
 	);
 	$string = preg_replace($pattern, '', $string);
 	return strip_tags($string, $allowable_tags);
+}
+
+/**
+ * Escapes a RFC 4180-compliant CSV string.
+ * Based on https://github.com/Automattic/camptix/blob/f80725094440bf09861383b8f11e96c177c45789/camptix.php#L2867
+ *
+ * @param string $string The string to be escaped
+ * @param boolean $escape_active_content Whether or not to escape active content trigger characters
+ * @return string The escaped string
+ */
+function my_escape_csv($string, $escape_active_content=true)
+{
+	if($escape_active_content)
+	{
+		$active_content_triggers = array('=', '+', '-', '@');
+		$delimiters = array(',', ';', ':', '|', '^', "\n", "\t", " ");
+
+		$first_character = mb_substr($string, 0, 1);
+
+		if(
+			in_array($first_character, $active_content_triggers, true) ||
+			in_array($first_character, $delimiters, true)
+		)
+		{
+			$string = "'".$string;
+		}
+
+		foreach($delimiters as $delimiter)
+		{
+			foreach($active_content_triggers as $trigger)
+			{
+				$string = str_replace($delimiter.$trigger, $delimiter."'".$trigger, $string);
+			}
+		}
+	}
+
+	$string = str_replace('"', '""', $string);
+
+	return $string;
 }

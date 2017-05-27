@@ -3,7 +3,8 @@
     require_once "template.php";
 	require_once "imageForm.php";
 	
-	if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
+	//if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
+	if (!isset(&_COOKIE["isConnected"]) || $_COOKIE["isConnected"] != true)
 	{
 		header('Location:connect.php');
         exit();
@@ -45,6 +46,6 @@
 	
 /* HTML */
 echo getAdminHeader("Gestion d'images - Module d'aide");
-echo '<a id="disconect" href="deconect.php">Déconection.</a>';
+echo '<a id="disconect" href="disconnect.php">Déconection.</a>';
 echo $content;
 echo'</body></html>';

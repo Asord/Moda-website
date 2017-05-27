@@ -7,7 +7,7 @@
 $settings['load'] = "0";
 $settings['mail_message_id'] = "1";
 $settings['mail_parameters'] = "";
-$settings['adminemail'] = "killian.perche@outlook.fr";
+$settings['adminemail'] = "wampserver@wampserver.invalid";
 $settings['extraadmininfo'] = "1";
 $settings['allowaimfield'] = "-1";
 $settings['allowalignmycode'] = "1";
@@ -139,7 +139,7 @@ $settings['hiddencaptchaimagefield'] = "email3";
 $settings['hideprivateforums'] = "1";
 $settings['hidesignatures'] = "";
 $settings['hidewebsite'] = "";
-$settings['homename'] = "Moda";
+$settings['homename'] = "Your Website";
 $settings['homeurl'] = "http://localhost/";
 $settings['siglength'] = "255";
 $settings['stopforumspam_log_blocks'] = "0";

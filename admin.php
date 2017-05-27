@@ -5,7 +5,8 @@
 	require_once "articleform.php";
     require_once "template.php";
 
-	if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
+	//if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
+	if (!isset(&_COOKIE["isConnected"]) || $_COOKIE["isConnected"] != true)
 	{
 		header('Location:connect.php');
         exit();
@@ -113,6 +114,6 @@
 
 /* HTML */
 echo getAdminHeader($title, '<script src="./ckeditor/ckeditor.js"></script>');
-echo '<a id="disconect" href="deconect.php">Déconection.</a>';
+echo '<a id="disconect" href="disconnect.php">Déconection.</a>';
 echo $content;
 echo '</body></html>';

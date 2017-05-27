@@ -28,10 +28,10 @@ if(isset($_POST["user"]) && isset($_POST["password"]))
 
     if ($result == 0)
     {
-		// setcookie(isConnected, true, (time() + 3600) );
-		// setcookie(user, $_POST["user"], (time() + 3600) );
-        $_SESSION["isConnected"] = true;
-        $_SESSION["user"] = $_POST["user"];
+		setcookie(isConnected, true, (time() + 3600) );
+		setcookie(user, $_POST["user"], (time() + 3600) );
+        //$_SESSION["isConnected"] = true;
+        //$_SESSION["user"] = $_POST["user"];
     }
 }
 
@@ -40,9 +40,10 @@ if(isset($_POST["user"]) && isset($_POST["password"]))
 <!DOCTYPE HTML>
 
 <HTML lang="fr">
-    <?php
-	// if (isset(&_COOKIE["isConnected"]) && $_COOKIE["isConnected"])
-    if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"])
+
+<?php
+    //if (isset($_SESSION["isConnected"]) && $_SESSION["isConnected"])
+	if (isset(&_COOKIE["isConnected"]) && $_COOKIE["isConnected"])
     {
         echo '
             <head>
