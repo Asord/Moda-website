@@ -1,76 +1,118 @@
 
 <?php
     require_once "utility.php";
-	require_once "pageManager.php";
+	require_once "articleManager.php";
+	require_once "articleform.php";
     require_once "template.php";
 
-    // Page data -> 0: page title | 1: page content
-	$page = [];
-
-    // If there is no connection yet
 	if (!isset($_SESSION["isConnected"]) || $_SESSION["isConnected"] != true)
 	{
 		header('Location:connect.php');
         exit();
 	}
+	
+	$form = [];
+	
+	$create = false;
+	$delete = 0;
+	$edit = 0;
 
-    // If a title and a content is defined by post (a new page creation request)
-    if (isset($_POST["title"]) && !empty($_POST["title"]) && isset($_POST["content"]) && !empty($_POST["content"]) )
-    {
-        createPage($entityManager, $_POST["title"], $_POST["content"]);
-        echo "page sucessfully created.";
-        $page = defaultPage();
-    }
-    // If a id is defined by get (page request)
-    elseif (isset($_GET["id"]) && !empty($_GET["id"]))
-    {
-        $page = getPage($entityManager, $_GET["id"]);
-    }
-    // if list is set by get (pages list request)
-    elseif (isset($_GET["list"]))
-    {
-        $page = listPages($entityManager);
-    }
-    // if edit is set and has a page id
-    elseif (isset($_GET["edit"]) && !empty($_GET["edit"]))
-    {
-        $page = editPage($entityManager, $_GET["edit"]);
-    }
-    // if delete is defined by get (page deletion request)
-    elseif (isset($_GET["delete"]) && !empty($_GET["delete"]))
-    {
-        deletePage($entityManager, $_GET["delete"]);
-        echo "page sucessfully deleted.";
-        $page = defaultPage($entityManager);
-    }
-    // if nothing is defined, page is a default page
-    else
-    {
-        $page = defaultPage($entityManager);
-    }
-
-	$title = $page[0];
-	$content = $page[1];
-?>
-<!DOCTYPE HTML>
-
-<HTML lang="fr">
-	<head>
-		<link rel="icon" type="image/png" href="images/favicon.png" />
-		<!--<link rel="stylesheet" href="style.css" />-->
-		<?php echo $title ?>
-		<style type="text/css">
-			.main {
-				text-align: center;
-				padding: 0 20px;
+	// zone de récupération des éléments post
+	if (isset($_POST["create"]))
+	{
+		$create = true;
+	}
+	if( isset($_POST["edit"]) && !empty($_POST["edit"]) )
+	{
+		$edit = $_POST["edit"];
+	}
+	if( isset($_POST["delete"]) && !empty($_POST["delete"]) )
+	{
+		$delete = $_POST["delete"];
+		$edit = 0;
+	}
+	
+	
+	if($edit != 0 || $create)
+	{                            
+		$list = array(
+			"title" => "Pas de titre",
+			"imageLink" => "image/default.png",
+			"author" => "inconnu",
+			"contrib" => "",
+			"tags" => "404",
+			"content" => "Pas de contenu"
+		);
+		
+		if(isset($_POST["title"]) && !empty($_POST["title"]))
+		{
+			$list["title"] = $_POST["title"];
+		}
+		if($create)
+		{
+			if(isset($_FILES["image"]) && !empty($_FILES["image"]))
+			{
+				$image_link = uploadImage($_FILES["image"]);
+				if ($image_link !== -1)
+				{
+					$list["imageLink"] = $image_link;
+				}
 			}
-			form {
-				text-align: center;
+		}
+		else
+		{
+			if(isset($_POST["imageLink"]) && !empty($_POST["imageLink"]))
+			{
+				$list["imageLink"] = $_POST["imageLink"];
 			}
-		</style>
-	</head>
-	<body>
-		<a href="deconect.php">Déconection.</a>
-		<?php echo getHeader().''.$content ?>
-	</body>
-</html>
+		}
+		if(isset($_POST["author"]) && !empty($_POST["author"]))
+		{
+			$list["author"] = $_POST["author"];
+		}
+		if(isset($_POST["contrib"]) && !empty($_POST["contrib"]))
+		{
+			$list["contrib"] = $_POST["contrib"];
+		}
+		if(isset($_POST["tags"]) && !empty($_POST["tags"]))
+		{
+			$list["tags"] = $_POST["tags"];
+		}
+		if(isset($_POST["content"]) && !empty($_POST["content"]))
+		{
+			$list["content"] = $_POST["content"];
+		}
+		
+		if($create)
+			createArticle($entityManager, $list);
+		else
+			editArticle($entityManager, $edit, $list);
+		
+	}
+	if ($delete != 0)
+	{
+		deleteArticle($entityManager, $delete);
+	}
+	
+	// Zone de récupération des éléments GET pour récupération des éléments form
+	if( isset($_GET["create"]) && $create == false)
+	{
+		$form = createArticleForm();
+	}
+	elseif( isset($_GET["edit"]) && !empty($_GET["edit"]) && $edit == 0 && $delete == 0)
+	{
+		$form = editArticleForm($entityManager, $_GET["edit"]);
+	}
+	else
+	{
+		$form = getListArticleForm($entityManager);
+	}
+	
+	$title = $form[0];
+	$content = $form[1];
+
+/* HTML */
+echo getAdminHeader($title, '<script src="./ckeditor/ckeditor.js"></script>');
+echo '<a id="disconect" href="deconect.php">Déconection.</a>';
+echo $content;
+echo '</body></html>';

@@ -1,0 +1,28 @@
+/* style.css overwrite */
+header {
+	background-image: none!important;
+	color: #000!important;
+}
+img {
+	width:50%!important;
+	height:auto!important;
+}
+.h1 {
+	padding-top: 100px!important;
+}
+.h2 {
+	padding: 0 0 0 0!important;
+}
+#delArticle {
+	color: #fff;
+	background-color: #800!important;
+}
+
+#disconect {
+	background-color: #000;
+	font-size: 15px;
+	color: #fff;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}

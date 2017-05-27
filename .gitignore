@@ -7,3 +7,4 @@ test-*
 test_*
 /forum/install
 /forum/cache
+/images/upload/

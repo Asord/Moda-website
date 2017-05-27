@@ -1,5 +1,4 @@
 <?php
-// src/User.php
 /**
  * @Entity @Table(name="user")
  **/
