@@ -1,0 +1,1 @@
+<?php echo "index.php is in da place"; ?>
