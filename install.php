@@ -25,5 +25,6 @@
 	exec("php vendor\doctrine\orm\bin\doctrine orm:schema-tool:create");
 	
 	header('Location:index.php');
+	unlink('install.php');
     exit();
 ?>
